@@ -1,4 +1,13 @@
 {
+  "name": "Social_Network_API",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node idex",
+
+  },
+  {
   "dependencies": {
     "express": "^4.17.3",
     "mongoose": "^6.2.10"
