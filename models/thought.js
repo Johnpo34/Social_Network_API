@@ -13,7 +13,7 @@ const thoughtSchema = new Schema(
         thoughtText: {
             type: stringify,
             required: true,
-            maxlength: 150,
+            maxlength: 280,
             minlength: 1,
         },
         madeAt: {
