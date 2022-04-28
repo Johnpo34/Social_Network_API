@@ -16,13 +16,11 @@ const users = [
 const thoughts = [
     {
         thoughtText: "Its really nice out today.",
-        username: "",
-        userId: "",
+        username: "johnpo34",
     },
     {
         thoughtText: "This pizza is the best",
-        username: "",
-        userId: "",
+        username: "jcantley11",
     },
 ];
 

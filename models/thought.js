@@ -2,8 +2,6 @@ const { Schema, model } = require("mongoose");
 const { stringify } = require("querystring");
 
 const reactionSchema = require ("./Reaction");
-const { Thought } = require("./user");
-
 const time = {
     timestapms: { currentTime: () => Math.floor(Date.now() / 1000) },
 };
@@ -11,7 +9,7 @@ const time = {
 const thoughtSchema = new Schema(
     {
         thoughtText: {
-            type: stringify,
+            type: String,
             required: true,
             maxlength: 280,
             minlength: 1,
@@ -39,5 +37,5 @@ thoughtSchema.virtual("reactionCount").get(function () {
     return `${this.reactions.length}`;
 })
 
-const Thought = model("Though", thoughtSchema);
+const Thought = model("Thought", thoughtSchema);
 module.exports = Thought;

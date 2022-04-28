@@ -1,4 +1,4 @@
-const { ObjectId } = require("mogoose").Types;
+const { ObjectId } = require("mongoose").Types;
 const res = require("express/lib/response");
 const { Thought, User } = require("../models");
 
@@ -25,7 +25,7 @@ module.exports = {
         })
     },
 
-    createThough(req, res) {
+    createThought(req, res) {
         Thought.create(req.body)
         .then((thought) => {
             return User.findOneAndUpdate(

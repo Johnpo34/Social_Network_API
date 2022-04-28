@@ -1,4 +1,4 @@
-const connection = requie('../config/connection');
+const connection = require('../config/connection');
 const { User, Thought} = require("../models");
 const { users, thoughts } = require("./data");
 
@@ -9,7 +9,6 @@ connection.once('open', async () => {
 
     await User.deleteMany({});
     await Thought.deleteMany({});
-    const users=[];
     await User.collection.insertMany(users);
     await Thought.collection.insertMany(thoughts);
 

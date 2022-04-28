@@ -1,11 +1,11 @@
 { 
-  "name": "Social_Network_API",
+  "name": "The_JP_Social_Network",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node idex",
-    "seed": "node utils/seed",
+    "start": "node index",
+    "seed": "node utils/seed"
   },
 
   "dependencies": {
@@ -15,6 +15,6 @@
 
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
+  }
   
 }
