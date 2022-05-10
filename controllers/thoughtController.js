@@ -10,7 +10,7 @@ module.exports = {
     },
 
     getOneThought(req, res) {
-        Thought.findOne({ _id: req.params.thoughtId })
+        Thought.findOne({ id: req.params.thoughtId })
         .select("-__v")
         .then(async (thought) =>
         !thought
@@ -29,7 +29,7 @@ module.exports = {
         Thought.create(req.body)
         .then((thought) => {
             return User.findOneAndUpdate(
-                { _id: req.body.userId },
+                { id: req.body.userId },
                 { $addToSet: { thoughts: thought._id }},
                 { new: true }
             );
@@ -45,7 +45,7 @@ module.exports = {
     },
 
     deleteThought(req, res) {
-        Thought.findOneAndRemove({ _id: req.params.thoughtId })
+        Thought.findOneAndRemove({ id: req.params.thoughtId })
         .then((thought) => !thought ? res.status(404).json({ message: "no thought with that id"}) : res.json(thought)
         )
         .catch((err) => {
@@ -55,7 +55,7 @@ module.exports = {
     },
 
     updateThought(req, res) {
-        Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $set: req.body})
+        Thought.findOneAndUpdate({ id: req.params.thoughtId}, { $set: req.body})
         .then((thought) => !thought ? res.status(404).json({ message: "no thought with that id"}) : res.json(thought)
         )
         .catch((err) => {
@@ -67,7 +67,7 @@ module.exports = {
     addReaction(req, res) {
         console.log("adding reaction");
         Thought.findOneAndUpdate(
-            { _id: req.params.thoughtId},
+            { id: req.params.thoughtId},
             {$addToSet: { reactions: req.body }},
             { runValidators: true, new: true }
         )
@@ -79,7 +79,7 @@ module.exports = {
     deleteReaction(req, res) {
         console.log("deleting reaction");
         Thought.findOneAndUpdate(
-            { _id: req.params.thoughtId },
+            { id: req.params.thoughtId },
             { $pull: { reactions: { reactionId: req.params.reactionId }}},
             { new: true }
         )
